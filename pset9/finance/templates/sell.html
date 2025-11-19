@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+    <form action="/sell" method="POST">
+        <select name="syms">
+            {% for  %}
+                <option value=></option>
+            {% endfor %}
+        </select>
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="shares" placeholder="How many shares" type="text">
+        <input type="submit">
+    </form>
+{% endblock %}

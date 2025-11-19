@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            //HIDDEN FEEDBACK
+            addEventListener('DOMContentLoaded', function(){
+                let correctMQ = document.querySelector('#correctMQ');
+                correctMQ.style.display = 'none';
+                let incorrectMQ = document.querySelector('#incorrectMQ');
+                incorrectMQ.style.display = 'none';
+                let correctFR = document.querySelector('#correctFR');
+                correctFR.style.display = 'none';
+                let incorrect = document.querySelector('#incorrectFR');
+                incorrectFR.style.display = 'none';
+            });
+
+            //MULTIPLE QUESTION
+            addEventListener('DOMContentLoaded', function(){
+                let buttons = document.querySelectorAll('.firstButtons');
+                let correct = document.querySelector('#correctMQ');
+                let incorrect = document.querySelector('#incorrectMQ');
+                for(i = 0; i < buttons.length; i ++){
+                    buttons[i].addEventListener('click', function(){
+                        if (this.innerText == 'Assembly') {
+                            correct.style.display = 'flex';
+                            incorrect.style.display = 'none';
+                            this.style.backgroundColor = 'green';
+                        } else {
+                            incorrect.style.display = 'flex';
+                            correct.style.display = 'none';
+                            this.style.backgroundColor = 'red';
+                        }
+                    })
+                }
+            });
+
+            //FREE RESPONSE
+            addEventListener('DOMContentLoaded', function(){
+                let correct = document.querySelector('#correctFR');
+                let incorrect = document.querySelector('#incorrectFR');
+                let input = document.querySelector('#answer');
+                let correctAnswer = "Apple";
+                document.querySelector('#confirm').addEventListener('click', function(){
+                    let answer = input.value;
+                    if(answer.toUpperCase() == correctAnswer.toUpperCase()){
+                        correct.style.display = 'flex';
+                        incorrect.style.display = 'none';
+                        input.style.backgroundColor = 'green';
+                    } else {
+                        incorrect.style.display = 'flex';
+                        correct.style.display = 'none';
+                        input.style.backgroundColor = 'red';
+                    }
+                });
+            })
+
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>Which of following alternatives corresponds to the oldest programming language?</h3>
+                <h3 id="correctMQ">Correct!</h3>
+                <h3 id="incorrectMQ">Incorrect!</h3>
+                <div>
+                    <button class='firstButtons'>Javascript</button>
+                    <button class='firstButtons'>Java</button>
+                    <button class='firstButtons'>C</button>
+                    <button class='firstButtons'>Assembly</button>
+                </div>
+            </div>
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>What's the name of iPhone company?</h3>
+                <h3 id="correctFR">Correct!</h3>
+                <h3 id="incorrectFR">Incorrect!</h3>
+                <input type="text" placeholder="Answer Here" id="answer">
+                <button id="confirm">Confirm Answer</button>
+            </div>
+        </div>
+    </body>
+</html>

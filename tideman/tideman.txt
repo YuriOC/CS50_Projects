@@ -1,0 +1,29 @@
+ESSE LOSER 0 FOI WINNER X?
+{
+
+  SE NAO = SEM CICLO
+  PODE CONTINUAR
+
+  SE SIM
+  {
+    LOSER X = WINNER 0?
+    {
+        SE SIM = TEM CICLO
+        BREAK
+
+        SE NAO
+        {
+            LOSER X FOI WINNER Y?
+            {
+                SE NAO = SEM CICLO
+                VOLTA A VER WINNER X
+
+                SE SIM
+                {
+                    USA A PRIMEIRA PERGUNTA.
+                }
+            }
+        }
+    }
+   }
+}

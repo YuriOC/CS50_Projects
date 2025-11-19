@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+        <table>
+            <tr>
+                <td>Symbol</td>
+                <td>Shares</td>
+                <td>Price</td>
+                <td>Total</td>
+            </tr>
+            {% for Syms in userSyms %}
+                <tr>
+                    <td>{{ Syms.symbol }}</td>
+                    <td>{{ Syms.total_amount }}</td>
+                    <td>{{ prices[loop.index0] }}</td>
+                    <td>{{ prices[loop.index0] * Syms.total_amount }}</td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <td>CASH</td>
+                <td></td>
+                <td></td>
+                <td>{{ userCash }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>{{ total }}</td>
+            </tr>
+        </table>
+{% endblock %}
